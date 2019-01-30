@@ -29,8 +29,20 @@ include ('include/nav.php');     // Include Navigation bar
 if($_POST)
 {
   $username = $_POST["user"];
-  $data = file_get_contents('https://api.steemjs.com/get_withdraw_routes?account='.$username.'&withdrawRouteType=true');         // steemjs Api
-  $info = json_decode($data,true);            // decode from json to php strings                   
+	
+ // $data = file_get_contents('https://api.steemjs.com/get_withdraw_routes?account='.$username.'&withdrawRouteType=true');         // steemjs Api
+ $api = "https://api.steemjs.com/get_withdraw_routes?account=$username&withdrawRouteType=true";
+//  Initiate curl
+$curl = curl_init();
+// Will return the response, if false it print the response
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+// Set the url
+curl_setopt($curl, CURLOPT_URL,$api);
+// Execute
+$data=curl_exec($curl);
+// Closing
+curl_close($curl);
+	$info = json_decode($data,true);            // decode from json to php strings                   
   $to = $info[0][to_account];                 // keep 'to_account' string's value at variable
     header("Location: confirmremove.php?user=$username&to=$to");   // redirect to confirmremove.php 
 }
