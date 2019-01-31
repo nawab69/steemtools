@@ -18,3 +18,40 @@
 - Now create a .htaccess file in your server and paste the below code;
 
 ```
+#remove php file extension-e.g. https://example.com/file.php will become https://example.com/file
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+```
+- save the file
+- Now open ``yoursite/index`` to open the homepage.
+
+## Features
+- Unique steemtools API
+- STEEMIT Blog/post words & Characters counter
+- Withdraw Route check
+- Withdraw Route Change
+- Withdraw Route Remove
+
+## Technology
+- PHP 7.0 
+- HTML 5
+- Bootstrap
+- JSON
+- JavaScript
+- SteemConnect
+- SteemJS
+
+## Contribute
+
+As it is an open source project,  anyone can contribute this project. 
+Simply upload your file / fork,  then inbox me. You can also contribute in our development process by utopian-io . 
+
+## Roadmap
+
+- Create kind of steemit tools.
+- Frontend Design.
+- Create steemtools API Library.
+- Make steemit easier.
+- Release some php tools & plugin of steemit.
