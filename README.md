@@ -52,7 +52,7 @@ Simply upload your file / fork,  then inbox me. You can also contribute in our d
 
 ## Roadmap
 
-- Create kind of steemit tools.
+- Create many kind of steemit tools.
 - Frontend Design.
 - Create steemtools API Library.
 - Make steemit easier.
