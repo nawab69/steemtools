@@ -31,6 +31,7 @@ $info = json_decode($data,true);
             //decode JSON
 
 $body = $info[body];
+$vote = $info[net_votes];
                               // select only body string
 
 $total_words = str_word_count($body);          //count total words of body strings
@@ -39,9 +40,9 @@ $total_characters = strlen($body);                   // count total length of bo
 
 $array = array('name' => $username,'url' => $url,'total_words' => $total_words,'total_char' => $total_characters);
                      // create array
-
-echo
-json_encode($array, JSON_PRETTY_PRINT);
-             // encode php array to JSON and print it
-
+$json = json_encode($array, JSON_PRETTY_PRINT);
+             // encode php array to JSON 
+header("Access-Control-Allow-Origin: *");
+header('Content-Type: application/json');
+echo $json;
 ?>
