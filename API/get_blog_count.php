@@ -13,36 +13,37 @@ $username = substr($url, $ustart, $ulen );
        // take username from url
 $plink = substr($url, $tstart);
                     //    take permlink from url
+$api = "https://tower.emrebeyler.me/api/v1/post_cache/$username/$plink/";                 //connect to tower api
 
-$api = "https://api.steemjs.com/get_content?author=$username&permlink=$plink";
-          //connect to steemjs api
+
 // Initiate curl
-$curl = curl_init();
+$ch = curl_init();
 // Will return the response, if false it print the response
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 // Set the url
-curl_setopt($curl, CURLOPT_URL,$api);
+curl_setopt($ch, CURLOPT_URL,$api);
 // Execute
-$data=curl_exec($curl);
+$result=curl_exec($ch);
 // Closing
-curl_close($curl);
+curl_close($ch);
 
-$info = json_decode($data,true);
-            //decode JSON
+$info = json_decode($result,true);           //decode JSON from API
 
-$body = $info[body];
-$vote = $info[net_votes];
-                              // select only body string
-
+$body = $info[body];                              // select only body string from $info
+$votes = $info[total_votes];
 $total_words = str_word_count($body);          //count total words of body strings
 $total_characters = strlen($body);                   // count total length of body string
 
-
-$array = array('name' => $username,'url' => $url,'total_words' => $total_words,'total_char' => $total_characters);
+$array = array('name' => $username,'url' => $url,'total_words' => $total_words,'total_char' => $total_characters,'net_votes' => $votes);
                      // create array
-$json = json_encode($array, JSON_PRETTY_PRINT);
-             // encode php array to JSON 
-header("Access-Control-Allow-Origin: *");
-header('Content-Type: application/json');
-echo $json;
+
+echo
+json_encode($array, JSON_PRETTY_PRINT);
+             // encode php array to JSON and print it
+
+// enable cross domain //
+
+header("Access-Control-Allow-Origin: *"); header('Content-Type: application/json');
+
+
 ?>
