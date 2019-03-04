@@ -6,7 +6,8 @@
 
 <br>
 
-![IMG_20190131_112733_439.JPG](https://cdn.steemitimages.com/DQma2i6rFu8fxe3HACssYAGn4gWxN6oiBwo5sxU64SoDkdQ/IMG_20190131_112733_439.JPG)
+![steemtools logotype2](https://user-images.githubusercontent.com/44573643/53733567-91535c80-3eab-11e9-833d-9281203cf178.png)
+
 
 http://steemtools.cf
 
