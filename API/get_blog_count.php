@@ -39,7 +39,7 @@ $array = array('name' => $username,'url' => $url,'total_words' => $total_words,'
 
 echo
 json_encode($array, JSON_PRETTY_PRINT);
-             // encode php array to JSON and print it
+             // encode php array to JSON and print it 
 
 // enable cross domain //
 
