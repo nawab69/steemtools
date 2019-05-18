@@ -27,7 +27,6 @@ curl_close($ch);
 $arr = json_decode($data,true);
       //decode data 
 $info = $arr[result];      //select result array from JSON 
-$json = json_encode($info);    // encode the result array to json
 
 }
 
