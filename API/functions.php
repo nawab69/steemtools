@@ -29,9 +29,5 @@ $arr = json_decode($data,true);
 $info = $arr[result];      //select result array from JSON 
 $json = json_encode($info);    // encode the result array to json
 
-header("Access-Control-Allow-Origin: *"); header('Content-Type: application/json');
-echo $json;
- // print the JSON
-
 }
 
